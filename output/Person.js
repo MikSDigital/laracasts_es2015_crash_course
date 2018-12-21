@@ -21,4 +21,56 @@ var Person = function () {
     return Person;
 }();
 
+var TaskCollection = function () {
+    function TaskCollection() {
+        var tasks = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+        _classCallCheck(this, TaskCollection);
+
+        this.tasks = tasks;
+    }
+
+    _createClass(TaskCollection, [{
+        key: 'prepare',
+        value: function prepare() {
+            this.tasks.forEach(function (task) {
+                return task.toGulp();
+            });
+        }
+    }, {
+        key: 'log',
+        value: function log() {
+            this.tasks.forEach(function (task, index) {
+                console.log(task, index);
+            });
+        }
+    }]);
+
+    return TaskCollection;
+}();
+
+var Task = function () {
+    function Task() {
+        _classCallCheck(this, Task);
+    }
+
+    _createClass(Task, [{
+        key: 'toGulp',
+        value: function toGulp() {
+            console.log('converting to gulp...');
+        }
+    }]);
+
+    return Task;
+}();
+
+new TaskCollection([new Task(), new Task()]).log();
+
+new TaskCollection([new Task(), new Task()]).prepare();
+
+var testOne = new TaskCollection([new Task(), new Task(), new Task()]);
+
+testOne.prepare();
+testOne.log();
+
 console.log(new Person('Mixa').greet());
