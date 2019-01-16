@@ -14,7 +14,18 @@ class TaskCollection {
 
     }
 
+
     prepare() {
+
+        let data = {
+            name: "Mixa",
+            age: 43,
+            results: ['foo', 'bar'],
+            count: 30
+        };
+
+        let {results, count, age} = data;
+
         this.tasks.forEach(task => task.toGulp())
     }
 

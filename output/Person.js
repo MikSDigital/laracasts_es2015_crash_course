@@ -33,6 +33,19 @@ var TaskCollection = function () {
     _createClass(TaskCollection, [{
         key: 'prepare',
         value: function prepare() {
+
+            var data = {
+                name: "Mixa",
+                age: 43,
+                results: ['foo', 'bar'],
+                count: 30
+            };
+
+            var results = data.results,
+                count = data.count,
+                age = data.age;
+
+
             this.tasks.forEach(function (task) {
                 return task.toGulp();
             });
